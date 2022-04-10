@@ -16,6 +16,7 @@ Napusteno selo na obodima planina!
 * **F**-ukljucuje i iskljucuje Flashlight
 * **Q**-smanjuje exposure za Bloom
 * **E**-povecava exposure za Bloom
+* **f1**-gui za fina podesavanja
 
 # Resursi
 
