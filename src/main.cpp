@@ -34,7 +34,7 @@ void renderQuad();
 // settings
 const unsigned int SCR_WIDTH = 800;
 const unsigned int SCR_HEIGHT = 600;
-bool spotlightOn = true;
+bool spotlightOn = false;
 bool bloom = true;
 bool bloomKeyPressed = false;
 float exposure = 1.0f;
