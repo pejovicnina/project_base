@@ -49,12 +49,6 @@ bool firstMouse = true;
 float deltaTime = 0.0f;
 float lastFrame = 0.0f;
 
-//nina poz1 poz2
-glm::vec3 lightPos1 = glm::vec3(2.5f, 1.0f, 6.5f);
-glm::vec3 lightPos2 = glm::vec3(2.0f, 0.8f, 10.5f);
-glm::vec3 lightPos3 = glm::vec3(-3.0f, 0.9f, 9.5f);
-glm::vec3 lightPos4 = glm::vec3(-4.2f, 1.3f, 9.5f);
-//nina
 
 struct PointLight {
     glm::vec3 position;
@@ -79,9 +73,9 @@ struct ProgramState {
     glm::vec3 clearColor = glm::vec3(0.0f);
     glm::vec3 dirLightDir = glm::vec3(-0.2f, -1.0f, -0.3f);
     glm::vec3 dirLightAmbDiffSpec = glm::vec3(0.3f, 0.3f,0.2f);
-    glm::vec3 translateVec = glm::vec3(0.0f);
-    glm::vec3 rotateVec = glm::vec3(0.0f);
-    float scaleVar = 0.01;
+//     glm::vec3 translateVec = glm::vec3(0.0f);
+//     glm::vec3 rotateVec = glm::vec3(0.0f);
+//     float scaleVar = 0.01;
 
     glm::vec3 dirLightDirection = glm::vec3(0.0f,-1.0f,0.0f);
 
@@ -611,8 +605,8 @@ int main() {
         glm::mat4 projection1 = glm::perspective(glm::radians(programState->camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
         glm::mat4 view1 = programState->camera.GetViewMatrix();
         glm::mat4 model1 = glm::mat4(1.0f);
-        transpShader.setMat4("projection", projection);
-        transpShader.setMat4("view", view);
+        transpShader.setMat4("projection", projection1);
+        transpShader.setMat4("view", view1);
 
         // vegetation
         glBindVertexArray(transparentVAO);
@@ -689,6 +683,11 @@ int main() {
     ImGui::DestroyContext();
     // glfw: terminate, clearing all previously allocated GLFW resources.
 
+    // optional: de-allocate all resources once they've outlived their purpose:
+    // ------------------------------------------------------------------------
+    glDeleteVertexArrays(1, &transparentVAO);
+    glDeleteBuffers(1, &transparentVBO);
+    
     glfwTerminate();
     return 0;
 }
@@ -786,9 +785,9 @@ void DrawImGui(ProgramState *programState) {
         static float f = 0.0f;
         ImGui::Begin("Hello window");
         ImGui::Text("Settings");
-        ImGui::DragFloat("Scale", &programState->scaleVar, 0.01,0.0001, 100.0);
-        ImGui::DragFloat3("Translate", (float*)&programState->translateVec);
-        ImGui::DragFloat3("Rotate", (float*)&programState->rotateVec);
+//         ImGui::DragFloat("Scale", &programState->scaleVar, 0.01,0.0001, 100.0);
+//         ImGui::DragFloat3("Translate", (float*)&programState->translateVec);
+//         ImGui::DragFloat3("Rotate", (float*)&programState->rotateVec);
 
         ImGui::DragFloat3("DirLight direction", (float*)&programState->dirLightDirection);
 
