@@ -37,7 +37,7 @@ Napusteno selo na obodima planina!
 
 # Galerija
 
-* Kratak snimak i slike mozete pogledati [ovde]().
+* Kratak snimak i slike mozete pogledati [ovde](https://drive.google.com/drive/folders/1Gq1oKnN_Cy1dTtZlD40ED_rWRrXPknNY?usp=sharing).
 
 # Autor
 
